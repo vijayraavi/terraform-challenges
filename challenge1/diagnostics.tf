@@ -9,7 +9,7 @@ resource "random_id" "randomId" {
 
 resource "azurerm_storage_account" "MyResourceName" {
     name = "diag${random_id.randomId.hex}"
-    resource_group_name = "azurerm_resource_group.vm.name"
+    resource_group_name = "${azurerm_resource_group.vm.name}"
     location = "${var.region}"
     account_tier = "Standard"
     account_replication_type = "LRS"
