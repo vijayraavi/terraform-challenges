@@ -1,4 +1,6 @@
-variable "resourceGroup" {}
+variable "resourceGroup" {
+  default = "challenge1"
+}
 
 variable "vmname" {}
 
