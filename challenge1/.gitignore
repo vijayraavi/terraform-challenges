@@ -1,0 +1,3 @@
+azureProviderAndCreds.tf
+remoteState.tf
+.terraform/*
