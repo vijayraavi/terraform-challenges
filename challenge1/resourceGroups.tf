@@ -1,4 +1,4 @@
-resource "azurerm_resource_group" "vm" {
+resource "azurerm_resource_group" "rg" {
     name = "${var.rg}"
     location = "${var.region}"
 
