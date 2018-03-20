@@ -14,8 +14,8 @@ resource "random_id" "cosmosdb" {
 
 resource "azurerm_cosmosdb_account" "cosmosdb" {
     name                = "cosmosdb-${random_id.cosmosdb.hex}"
-    location            = "${azurerm_resource_group.rg.location}"
-    resource_group_name = "${azurerm_resource_group.rg.name}"
+    location            = "${azurerm_resource_group.cosmosdb.location}"
+    resource_group_name = "${azurerm_resource_group.cosmosdb.name}"
     offer_type          = "Standard"
     kind                = "MongoDB"
   
