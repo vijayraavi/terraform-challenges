@@ -19,13 +19,14 @@ resource "azurerm_cosmosdb_account" "cosmosdb" {
     offer_type          = "Standard"
     kind                = "MongoDB"
   
-  consistency_policy {
-    consistency_level = "Session"
-  }
+    consistency_policy {
+      consistency_level = "Session"
+        
 
-  failover_policy {
-    location = "East US"
-    priority = 0
+    failover_policy {
+        count = "${var.failoverRegionCount}
+        location = "${element(var.failoverRegion, count.index}"
+        priority = "${count.index}"
   }
 
   tags {

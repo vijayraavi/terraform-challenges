@@ -8,11 +8,13 @@ variable "rg" {
 }
 
 variable "region" {
-    type = "string"
     default = "West Europe"
 }
 
-variable "failover" {
+variable "failoverRegionCount" {
+    default = "2"
+} 
+variable "failoverRegion" {
     default = [ "East US", "Central India" ]
 }
 
