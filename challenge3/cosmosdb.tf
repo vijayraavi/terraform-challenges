@@ -23,8 +23,9 @@ resource "azurerm_cosmosdb_account" "cosmosdb" {
         consistency_level = "Session"
     }
 
+    count = "${var.failoverRegionCount}"
+
     failover_policy {
-        count = "${var.failoverRegionCount}"
         location = "${element(var.failoverRegion, count.index)}"
         priority = "${count.index}"
     }
