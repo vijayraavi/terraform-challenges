@@ -1,4 +1,4 @@
-variable "resourceGroup" {
+variable "rg" {
     default = "challenge1"
 }
 

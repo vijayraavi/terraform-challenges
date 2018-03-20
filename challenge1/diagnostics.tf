@@ -7,7 +7,7 @@ resource "random_id" "randomId" {
     byte_length = 8
 }
 
-resource "azurerm_storage_account" "MyResourceName" {
+resource "azurerm_storage_account" "diagstorage" {
     name = "diag${random_id.randomId.hex}"
     resource_group_name = "${azurerm_resource_group.vm.name}"
     location = "${var.region}"

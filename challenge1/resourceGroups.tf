@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "vm" {
-    name = "${var.resourceGroup}"
+    name = "${var.rg}"
     location = "${var.region}"
 
     tags = {
