@@ -23,7 +23,7 @@ resource "azurerm_subnet" "vm" {
 }
 
 resource "azurerm_public_ip" "vm" {
-    name                         = "${arg.vmname}-pip"
+    name                         = "${arg.vmname}\-pip"
     location                     = "${arg.region}"
     resource_group_name          = "${azurerm_resource_group.rg.name}"
     public_ip_address_allocation = "dynamic"
