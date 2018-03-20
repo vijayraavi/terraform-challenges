@@ -13,7 +13,7 @@ variable "region" {
 
 variable "failover" {
     # Two regions expected in the list
-    default = [ "East US", "Central India" ]
+    default = [ "West Europe", "East US" ]
 }
 
 variable "tags" {
