@@ -33,5 +33,4 @@ resource "azurerm_cosmosdb_account" "cosmosdb" {
         location = "${var.failover[1]}"
         priority = 1
     }
-
 }
