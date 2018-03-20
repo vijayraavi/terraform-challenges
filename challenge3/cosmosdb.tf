@@ -25,7 +25,7 @@ resource "azurerm_cosmosdb_account" "cosmosdb" {
 
     failover_policy {
         count = "${var.failoverRegionCount}"
-        location = "${element(var.failoverRegion, count.index}"
+        location = "${element(var.failoverRegion, count.index)}"
         priority = "${count.index}"
     }
 
