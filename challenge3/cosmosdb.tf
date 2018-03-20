@@ -1,7 +1,7 @@
 resource "azurerm_resource_group" "cosmosdb" {
-    name = "${var.rg["cosmosdb"]}"
-    location = "${var.region}"
-    tags = "${var.tags}"
+    name        = "${var.rg["cosmosdb"]}"
+    location    = "${var.region}"
+    tags        = "${var.tags}"
 }
 
 resource "random_id" "cosmosdb" {
@@ -16,6 +16,7 @@ resource "azurerm_cosmosdb_account" "cosmosdb" {
     name                = "cosmosdb-${random_id.cosmosdb.hex}"
     location            = "${azurerm_resource_group.cosmosdb.location}"
     resource_group_name = "${azurerm_resource_group.cosmosdb.name}"
+    tags                = "${var.tags}"
     offer_type          = "Standard"
     kind                = "MongoDB"
   
@@ -23,14 +24,13 @@ resource "azurerm_cosmosdb_account" "cosmosdb" {
         consistency_level = "Session"
     }
 
-    count = "${var.failoverRegionCount}"
-
     failover_policy {
-        location = "${element(var.failoverRegion, count.index)}"
-        priority = "${count.index}"
+        location = "${var.failover[0]}"
+        priority = 0
     }
 
-    tags {
-        tier = "Storage"
+    failover_policy {
+        location = "${var.failover[1]}"
+        priority = 1
     }
 }

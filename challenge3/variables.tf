@@ -11,10 +11,8 @@ variable "region" {
     default = "West Europe"
 }
 
-variable "failoverRegionCount" {
-    default = "2"
-} 
-variable "failoverRegion" {
+variable "failover" {
+    # Two regions expected in the list
     default = [ "East US", "Central India" ]
 }
 
