@@ -20,16 +20,16 @@ resource "azurerm_cosmosdb_account" "cosmosdb" {
     kind                = "MongoDB"
   
     consistency_policy {
-      consistency_level = "Session"
-        
+        consistency_level = "Session"
+    }
 
     failover_policy {
         count = "${var.failoverRegionCount}"
         location = "${element(var.failoverRegion, count.index}"
         priority = "${count.index}"
-  }
+    }
 
-  tags {
-    tier = "Storage"
-  }
+    tags {
+        tier = "Storage"
+    }
 }
