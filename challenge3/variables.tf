@@ -12,7 +12,7 @@ variable "region" {
 }
 
 variable "failover" {
-    # Two regions expected in the list
+    # Two regions expected in the list - first is the write
     default = [ "West Europe", "East US" ]
 }
 

@@ -5,10 +5,10 @@ resource "azurerm_resource_group" "aks" {
 }
 
 resource "azurerm_kubernetes_cluster" "aks" {
-  name			= "aksCluster"
-  location		= "${azurerm_resource_group.aks.location}"
-  resource_group_name	= "${azurerm_resource_group.aks.name}"
-  tags			
+  name			          = "aksCluster"
+  location		        = "${azurerm_resource_group.aks.location}"
+  resource_group_name = "${azurerm_resource_group.aks.name}"
+  tags                = "${var.tags}"
 
   kubernetes_version	= "1.8.2"
   dns_prefix		= "tfaksagent"
