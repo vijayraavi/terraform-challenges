@@ -1,5 +1,6 @@
 variable "rg" {
     type = "map"
+
     default = {
         cosmosdb = "challenge4-cosmosdb"
         aks = "challenge4-aks"
@@ -17,6 +18,7 @@ variable "failover" {
 
 variable "tags" {
     type = "map"
+
     default = {
         environment = "test"
         description = "Technical Depth"
